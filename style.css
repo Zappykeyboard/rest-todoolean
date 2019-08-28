@@ -8,12 +8,26 @@
   user-select: none;
   list-style: none;
 }
+.title{
+  text-align: center;
+  margin: 10px auto;
+}
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#text-box, #submit{
+  font-size: 1.3rem;
+  line-height: 1.2rem;
+}
 
 .container {
   display: flex;
   flex-wrap: wrap;
   width: 100vw;
-  height: 100vh;
 
   padding: 50px 25px;
 
@@ -23,7 +37,7 @@
 .todoitem{
   width: 200px;
   height: 150px;
-
+  overflow: hidden;
   background: gray;
   color: white;
 
