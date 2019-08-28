@@ -5,15 +5,43 @@ function init() {
 
   $(document).on("click", ".delete", deleteItem);
   $(document).on("click", "#submit", addItem);
+  $(document).on("click", ".update", updateItem);
 }
 
 $(document).ready(init);
 
+//aggiorno l'elemento
+function updateItem(){
+  var element = $(this);
+  var theBox = element.parent();
+  var theId = theBox.data("id");
+
+  var theText = prompt("Inserisci il nuovo testo...");
+  //console.log("voglio aggiornare elemento con ID: " + theId);
+
+  $.ajax({
+    url: "http://157.230.17.132:3001/todos/"+theId,
+    method: "PUT",
+    data: {
+      text: theText
+    },
+    success: function(){
+      console.log("elemento modificato!");
+      getTodoItems();
+    },
+    error:function(){
+      alert("errore");
+    }
+  })
+}
+
+//rimuovo i vecchi elementi dalla lista
 function clearItems(){
   var theContainer = $(".container");
   theContainer.children().remove();
 }
 
+//aggiungo un nuovo elemento partendo dal campo di testo
 function addItem(){
   var element = $(this);
   var theTextBox = element.siblings("#text-box");
@@ -28,7 +56,7 @@ function addItem(){
         text: theText
       },
       success: function(){
-        console.log("successo!");
+        console.log("elemento aggiunto!");
         getTodoItems();
       },
       error: function () {
@@ -38,6 +66,7 @@ function addItem(){
   }
 }
 
+//cancello l'elemento
 function deleteItem() {
   var element = $(this);
   var theBox = element.parent();
@@ -60,6 +89,7 @@ function deleteItem() {
   })
 }
 
+//recupero gli elementi dal server
 function getTodoItems() {
   clearItems();
 
@@ -78,6 +108,7 @@ function getTodoItems() {
 
 }
 
+//inserisco gli elementi nell'html
 function printItems(toDoItems) {
 
   var theContainer = $(".container");
