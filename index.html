@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- FONT: LATO -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <!-- FONT: FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+    <!-- JS: JQUERY -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+   
+    <!-- JS: HANDLEBARS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
+    <!-- TEMPLATE: TODO ITEM-->
+    <script id="item-template" type="text/x-handlebars-template">
+      <div class="todoitem" data-id="{{id}}">
+          <p class="delete">X</p>
+  
+          <span class="thetext">{{text}}</span>  
+        </div>
+    </script>
+
+    <!-- CSS: MY STYLE -->
+    <link rel="stylesheet" href="style.css">
+    
+    <title>ToDoList</title>
+  </head>
+  <body>
+
+    <h1>ToDo List</h1>
+    <div class="form-container">
+      <input type="text" name="text" placeholder="Aggiungi un elemento..." id="text-box" value="">
+      <button id="submit">Aggiungi!</button>
+      
+    </div>
+    <div class="container">
+      
+    </div>
+    <!-- JS: MY SCRIPT -->
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
